@@ -1,0 +1,40 @@
+server:
+  port: 5000
+spring:
+  application:
+    name: cloud-admin-server
+  security:
+    basic:
+      enabled: true
+    user:
+      name: root
+      password: 644886
+  main:
+    allow-bean-definition-overriding: true
+eureka:
+  client:
+    registryFetchIntervalSeconds: 5 #表示eureka client间隔多久去拉取服务注册信息，默认为30秒
+    service-url:
+      defaultZone: http://root:644886@localhost:8761/eureka/
+  instance:
+    leaseRenewalIntervalInSeconds: 10 #表示eureka client发送心跳给server端的频率，默认为30秒
+    health-check-url-path: /actuator/health #健康检查的地址（依赖spring-boot-starter-actuator）
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+    appname: cloud-admin-server
+    # 注册给eureka的时候告诉eureka自己的密码
+    metadata-map:
+      user.name: ${spring.security.user.name}         #These two are needed so that the server
+      user.password: ${spring.security.user.password} #can access the protected client endpoints
+
+# 2.0开始，actuator默认不开放，所以要设置为开放
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  #<2>
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+

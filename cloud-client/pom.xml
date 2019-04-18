@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.pier</groupId>
-    <artifactId>cloud-client2</artifactId>
+    <artifactId>cloud-client</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>cloud-client2</name>
+    <name>cloud-client</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

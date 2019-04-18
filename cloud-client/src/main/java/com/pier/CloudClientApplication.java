@@ -1,14 +1,10 @@
 package com.pier;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
-import org.springframework.cloud.netflix.hystrix.EnableHystrix;
-import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
@@ -19,7 +15,7 @@ import org.springframework.web.client.RestTemplate;
 @EnableFeignClients
 @EnableCircuitBreaker
 //@EnableHystrix
-public class CloudClient2Application {
+public class CloudClientApplication {
 
     /*// ribbon需要配置，负载均衡
     @Autowired
@@ -38,7 +34,7 @@ public class CloudClient2Application {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(CloudClient2Application.class, args);
+        SpringApplication.run(CloudClientApplication.class, args);
     }
 
 }

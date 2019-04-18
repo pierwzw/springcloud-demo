@@ -1,0 +1,29 @@
+server:
+  port: 8100
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://root:644886@localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+    appname: cloud-server
+
+spring:
+  application:
+    name: cloud-server
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: cloud-config-server
+      fail-fast: true
+      username: root
+      password: 644886
+      profile: dev
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      percentage: 1.0

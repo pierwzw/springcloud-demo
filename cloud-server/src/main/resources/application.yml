@@ -1,0 +1,31 @@
+#server:
+#  port: 8771
+#
+#spring:
+##  application:
+##    name: cloudserver #serviceid
+#  # 热部署生效
+#  devtools:
+#    restart:
+#      enabled: true
+#
+#eureka:
+#  # server:
+#  #    enable-self-preservation: true #关闭其自我保护（开发环境可以操作，方便）
+#  client:
+#    registerWithEureka: false #其本身作为注册中心，所有设置为：不显示在注册中心
+#    fetchRegistry: false
+#    serviceUrl:
+#      #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+#      defaultZone: http://localhost:8771/eureka/
+#
+##management:
+##  endpoints:
+##    web:
+##      exposure:
+##        include: hystrix.stream # 或者'*'
+
+#logging:
+#  config: classpath:logback.xml
+#  level:
+#    root: info

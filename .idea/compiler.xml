@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="cloud-server" />
+        <module name="cloud-client2" />
+        <module name="springcloud-demo" />
+        <module name="cloud-eureka" />
+        <module name="cloud-config" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="cloud-client" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="cloud-client" options="-parameters" />
+      <module name="cloud-client2" options="-parameters" />
+      <module name="cloud-config" options="-parameters" />
+      <module name="cloud-eureka" options="-parameters" />
+      <module name="cloud-server" options="-parameters" />
+    </option>
+  </component>
+</project>

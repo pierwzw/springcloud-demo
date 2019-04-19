@@ -14,6 +14,7 @@ turbine:
     clusterConfig: default
   appConfig: cloud-client
   clusterNameExpression: "'default'"
+  #instanceUrlSuffix: /hystrix.stream
 spring:
   application:
     name: cloud-board

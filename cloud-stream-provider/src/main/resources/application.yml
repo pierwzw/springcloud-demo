@@ -47,5 +47,9 @@ spring:
           content-type: text/plain
           producer:
             partitionCount: 1
+        springCloudBusOutput:
+          destination: springCloudBus
+#          producer:
+#            partitionCount: 1
   application:
     name: stream-provider

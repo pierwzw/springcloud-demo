@@ -9,11 +9,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @SpringBootApplication
-//@RestController
-//@EnableEurekaServer
-//@EnableCircuitBreaker
-//@EnableHystrix
-//@EnableHystrixDashboard
 @EnableDiscoveryClient
 public class CloudServerApplication {
 

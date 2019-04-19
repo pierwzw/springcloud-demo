@@ -27,7 +27,7 @@ public class RibbonController {
      * @return
      */
     @GetMapping("/ribbon/{wd}")
-    //@HystrixCommand(fallbackMethod="fallbackMethod")
+    @HystrixCommand(fallbackMethod="fallbackMethod")
     public Mono<String> sayHelloWorld(@PathVariable("wd") String parm) {
 
         ServiceInstance serviceInstance = loadBalancerClient.choose("CLOUD-SERVER");

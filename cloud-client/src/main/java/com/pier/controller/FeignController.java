@@ -15,7 +15,7 @@ import java.util.List;
 public class FeignController {
 
     @Autowired
-    private MFeignClient feignClient;
+    private MFeignClient feignClient;   //这个错误提示不用管
 
     @GetMapping("/feign/{wd}")
     public Mono<String> sayHelloWorld(@PathVariable("wd") String parm) {

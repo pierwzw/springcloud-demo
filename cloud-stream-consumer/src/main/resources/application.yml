@@ -46,8 +46,16 @@ spring:
         #springCloudBus topic是默认值可以不配,对应的input output分别是springCloudBusInput,springCloudBusOutput,需要对bus stream定制的话可以配置这两个channel
         springCloudBusInput:
           destination: springCloudBus
+#          consumer:
+#            autoCommitOffset: false
+#            concurrency: 1
+#            partitioned: false
           #可以指定消费组，避免每次生成随机group
           group: cloud-bus-testgroup:${spring.application.index}
+#        springCloudBusOuput:
+#          destination: springCloudBus
+#          producer:
+#            partitionCount: 1
         input:
           #destination: springCloudBus
           destination: event-demo

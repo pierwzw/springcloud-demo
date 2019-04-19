@@ -14,6 +14,8 @@
         <option value="$PROJECT_DIR$/cloud-board/pom.xml" />
         <option value="$PROJECT_DIR$/cloud-zipkin/pom.xml" />
         <option value="$PROJECT_DIR$/cloud-admin/pom.xml" />
+        <option value="$PROJECT_DIR$/cloud-stream-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/cloud-stream-consumer/pom.xml" />
       </list>
     </option>
   </component>

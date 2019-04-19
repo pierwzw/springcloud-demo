@@ -8,13 +8,15 @@
         <outputRelativeToContentRoot value="true" />
         <module name="cloud-zuul" />
         <module name="springcloud-demo" />
+        <module name="cloud-stream-provider" />
         <module name="cloud-zipkin" />
-        <module name="cloud-client" />
-        <module name="cloud-eureka" />
+        <module name="cloud-stream-consumer" />
         <module name="cloud-admin" />
+        <module name="cloud-config" />
+        <module name="cloud-eureka" />
         <module name="cloud-server" />
         <module name="cloud-board" />
-        <module name="cloud-config" />
+        <module name="cloud-client" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -30,6 +32,8 @@
       <module name="cloud-config" options="-parameters" />
       <module name="cloud-eureka" options="-parameters" />
       <module name="cloud-server" options="-parameters" />
+      <module name="cloud-stream-consumer" options="-parameters" />
+      <module name="cloud-stream-provider" options="-parameters" />
       <module name="cloud-zipkin" options="-parameters" />
       <module name="cloud-zuul" options="-parameters" />
     </option>

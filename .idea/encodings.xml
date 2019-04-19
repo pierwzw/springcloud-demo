@@ -9,6 +9,8 @@
     <file url="file://$PROJECT_DIR$/cloud-config" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-eureka" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-stream-consumer" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-stream-provider" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-zipkin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-zuul" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />

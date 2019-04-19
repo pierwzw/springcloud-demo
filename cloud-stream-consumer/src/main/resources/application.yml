@@ -1,0 +1,61 @@
+server:
+  port: 8402
+eureka:
+  client: # 客户端进行Eureka注册的配置
+    service-url:
+      defaultZone: http://root:644886@localhost:8761/eureka/
+  instance:
+    lease-renewal-interval-in-seconds: 2 # 设置心跳的时间间隔（默认是30秒）
+    lease-expiration-duration-in-seconds: 5 # 如果现在超过了5秒的间隔（默认是90秒）
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+    prefer-ip-address: true     # 访问的路径变为IP地址
+spring:
+  cloud:
+    stream:
+      rabbit: # 进行rabbit的相关绑定配置
+        bindings:
+          input1:
+            consumer: # 进行消费端配置
+              exchangeType: direct
+              bindingRoutingKey: test # 设置一个RoutingKey信息
+              acknowledge-mode: manual
+      kafka:
+        binder:
+          brokers: localhost:9092
+          # zk-nodes: localhost:2182 no longer necessaary since 2.0
+          auto-add-partitions: true
+          auto-create-topics: true
+          min-partition-count: 1
+      binders: # 在此处配置要绑定的rabbitmq的服务信息；
+        defaultRabbit: # 表示定义的名称，用于于binding整合
+          type: rabbit # 消息组件类型
+          environment: # 设置rabbitmq的相关的环境配置
+            spring:
+              rabbitmq:
+                host: aliyun
+                port: 5672
+                username: pier
+                password: 644886
+                virtual-host: /
+      bindings: # 服务的整合处理
+        input1: # 这个名字是一个通道的名称，在分析具体源代码的时候会进行说明
+          destination: exchange1 # 表示要使用的Exchange名称定义
+          #content-type: application/json # 设置消息类型，本次为对象json，如果是文本则设置“text/plain”
+          binder: defaultRabbit # 设置要绑定的消息服务的具体设置
+          group: queue1 # 进行操作的分组，实际上就表示持久化  queue的创建？？？
+        #springCloudBus topic是默认值可以不配,对应的input output分别是springCloudBusInput,springCloudBusOutput,需要对bus stream定制的话可以配置这两个channel
+        springCloudBusInput:
+          destination: springCloudBus
+          #可以指定消费组，避免每次生成随机group
+          group: cloud-bus-testgroup:${spring.application.index}
+        input:
+          #destination: springCloudBus
+          destination: event-demo
+          group: s1
+          consumer:
+            autoCommitOffset: false
+            concurrency: 1
+            partitioned: false
+  application:
+    name: stream-consumer
+    #index: 1 now unique by default
